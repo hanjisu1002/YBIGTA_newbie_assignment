@@ -41,24 +41,23 @@ fi
 pip install mypy
 
 # Submission 폴더 파일 실행
-# 현재 디렉토리: 1(2)-CS_basics
-submission_dir="../1(1)-Python/submission"
-input_dir="./input"
-output_dir="./output"
+cd submission || { echo "[INFO] submission 디렉토리로 이동 실패"; exit 1; }
+
+input_dir="../input"
+output_dir="../output"
 
 mkdir -p "$output_dir"
 
-for filepath in "$submission_dir"/*.py; do
-    filename=$(basename "$filepath")              # 예: 1_1260.py
-    filename_no_prefix="${filename#*_}"           # 예: 1260.py → 1260
-    filename_no_ext="${filename_no_prefix%.py}"   # 예: 1260
+for file in *.py; do
+    filename_no_prefix="${file#*_}"           # 예: 1_1260.py → 1260.py
+    filename_no_ext="${filename_no_prefix%.py}" # 예: 1260.py → 1260
 
     input_file="$input_dir/${filename_no_ext}_input"
     output_file="$output_dir/${filename_no_ext}_output"
 
     if [ -f "$input_file" ]; then
-        echo "[INFO] 실행 중: $filename"
-        python "$filepath" < "$input_file" > "$output_file"
+        echo "[INFO] 실행 중: $file"
+        python "$file" < "$input_file" > "$output_file"
     else
         echo "[WARNING] $input_file 없음 — 건너뜀"
     fi
@@ -66,14 +65,13 @@ done
 
 
 
-
 # mypy 테스트 실행 및 mypy_log.txt 저장
 ## TODO
-mypy "$submission_dir" > "./mypy_log.txt"
+mypy "$submission_dir" > "../mypy_log.txt"
 
 # conda.yml 파일 생성
 ## TODO
-conda env export > "./conda.yml"
+conda env export > "../conda.yml"
 
 
 # 가상환경 비활성화
