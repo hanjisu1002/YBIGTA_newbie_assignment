@@ -1,4 +1,5 @@
 import sys
+import os
 
 PATH_1 = "./1-graph-traversal" 
 PATH_2 = "./2-stack-queue-deque"
@@ -21,6 +22,7 @@ ROOT_PATH = {
 
 # TODO: 루트 폴더에 submission 폴더 생성하기 (FileNotFoundError)
 PATH_SUB = "./submission" 
+os.makedirs(PATH_SUB, exist_ok=True)
 
 def integrate_file(n: str) -> None:
     num_code = "".join(filter(lambda x: "from lib import" not in x, open(f"{ROOT_PATH[n]}/{n}.py").readlines()))

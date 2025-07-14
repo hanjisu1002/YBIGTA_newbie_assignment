@@ -1,8 +1,8 @@
 from __future__ import annotations
+import copy
 from collections import deque
 from collections import defaultdict
-from typing import Callable
-import sys
+from typing import DefaultDict, List
 
 
 """
@@ -93,7 +93,18 @@ class Graph:
         
         print(' '.join(map(str, dfs_result)))
         print(' '.join(map(str, bfs_result)))
-        
+
+
+
+from typing import Callable
+import sys
+
+
+"""
+-아무것도 수정하지 마세요!
+"""
+
+
 def main() -> None:
     intify: Callable[[str], list[int]] = lambda l: [*map(int, l.split())]
 

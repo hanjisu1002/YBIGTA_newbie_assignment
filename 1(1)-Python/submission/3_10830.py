@@ -1,7 +1,5 @@
 from __future__ import annotations
 import copy
-from typing import Callable
-import sys
 
 
 """
@@ -70,6 +68,7 @@ class Matrix:
         # identity matrix
         if n == 0:
             return Matrix.eye(self.shape[0])
+        
         # get O(logn) time complexity
         elif n % 2 == 0:
             half = self ** (n//2)
@@ -77,6 +76,7 @@ class Matrix:
         else:
             result = self @ (self ** (n-1))
         
+        # mod computation
         for i in range(result.shape[0]):
             for j in range(result.shape[1]):
                 result[i, j] %= self.MOD
@@ -84,10 +84,16 @@ class Matrix:
         return result
 
 
+
     def __repr__(self) -> str:
         # 구현하세요!
         return "\n".join(" ".join(map(str, row)) for row in self.matrix)
-    
+
+
+from typing import Callable
+import sys
+
+
 """
 -아무것도 수정하지 마세요!
 """

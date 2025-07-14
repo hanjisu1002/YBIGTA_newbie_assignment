@@ -24,6 +24,9 @@ def rotate_and_remove(queue: deque[int], k: int) -> int:
     return removed
 
 
+
+
+
 """
 TODO:
 - josephus_problem 구현하기
