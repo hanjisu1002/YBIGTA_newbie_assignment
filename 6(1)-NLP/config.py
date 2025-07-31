@@ -13,6 +13,6 @@ num_epochs_word2vec = 5
 # GRU
 hidden_size = 256
 num_classes = 4
-lr = 5e-03
+lr = 1e-3
 num_epochs = 100
 batch_size = 16
