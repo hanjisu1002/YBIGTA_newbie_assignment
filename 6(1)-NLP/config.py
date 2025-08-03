@@ -18,6 +18,6 @@ num_classes = 4
 #lr = 7e-4 macro: 0.280870 | micro: 0.567308
 #lr = 1e-4 batch 32 macro: 0.310000 | micro: 0.615385
 #lr = 1e-3 batch 16 macro: 0.363401 | micro: 0.563769
-lr = 1e-3
+lr = 1e-4
 num_epochs = 150
 batch_size = 32
